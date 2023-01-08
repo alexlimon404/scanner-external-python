@@ -49,7 +49,6 @@ def scan_port(ip, port, timeout):
     except UnknownProtocol or BadStatusLine:
         try:
             response = response.decode()
-            s.close()
         except:
             response = 'undefined protocol'
             s.close()
@@ -58,6 +57,7 @@ def scan_port(ip, port, timeout):
         s.close()
     except:
         s.close()
+    s.close()
 
 
 # https://github.com/python/cpython/blob/8d4c52ffb47a4d3590758220f297ba58108e1ef3/Lib/http/client.py#L266
