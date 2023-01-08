@@ -9,7 +9,7 @@ def config():
         'accept': 'application/json',
         'unique': dotenv_values(".env").get('SCANNER_UNIQUE_ID'),
         'token': dotenv_values(".env").get('SCANNER_AUTH_TOKEN'),
-        'app-version': '0.02',
+        'app-version': '0.03',
         'app-type': 'python',
     }
 

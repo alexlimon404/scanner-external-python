@@ -30,7 +30,7 @@ def process(item):
             time.sleep(0.01)
             thread.start()
 
-        thread.join(timeout)
+        thread.join(timeout + 0.4)
 
 
 def scan_port(ip, port, timeout):
@@ -49,8 +49,10 @@ def scan_port(ip, port, timeout):
     except UnknownProtocol or BadStatusLine:
         try:
             response = response.decode()
+            s.close()
         except:
             response = 'undefined protocol'
+            s.close()
 
         checks.append({"ip": ip, 'port': port, 'status': 0, 'data': response})
         s.close()
